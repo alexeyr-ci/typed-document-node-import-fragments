@@ -4,7 +4,17 @@ const config: CodegenConfig = {
   schema: "schema.graphql",
   documents: "document.graphql",
   generates: {
-    "types.ts": { plugins: ["typescript", "typescript-operations"] },
+    "types.ts": {
+      plugins: [
+        "typescript",
+        "typescript-operations",
+        "typed-document-node",
+        // "typescript-react-apollo",
+      ],
+      config: {
+        documentMode: "documentNodeImportFragments",
+      },
+    },
   },
 };
 
